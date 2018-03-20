@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Button from 'material-ui/Button'
 
 const Frame = ({ artwork }) => {
   let id = artwork.id;
@@ -14,7 +15,9 @@ const Frame = ({ artwork }) => {
             <h3>{ artwork.title }</h3>
             <p>{ artwork.artist }</p>
 
-            <p><a target="_new" href={'https://collections.artsmia.org/art/' + id }>View on Mia Website</a></p>
+            <Button target="_new" href={'https://collections.artsmia.org/art/' + id } component="a" variant="raised" color="primary">
+              View on Mia's Site
+            </Button>
           </li>
         </ul>
       </div>
