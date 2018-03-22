@@ -1,6 +1,8 @@
 import React from 'react';
 import Router from 'next/router';
 import PropTypes from 'prop-types';
+import { withStyles } from 'material-ui/styles';
+import withRoot from '../src/withRoot';
 
 import 'isomorphic-unfetch';
 import Head from 'next/head';
@@ -9,8 +11,37 @@ import Link from 'next/link';
 import Page from '../components/Page';
 import Modal from '../components/modal';
 
+const styles = (theme) => {
+  return {
+    list: {
+      'padding': theme.spacing.unit * 6,
+      'text-align': 'center'
+    },
+    photopermalink: {
+      'display': 'inline-block'
+    },
+    photo: {
+      display: 'inline-block',
+      'text-align':'center'
+    },
 
-export default class Index extends React.Component {
+    photoLink: {
+      verticalAlign: 'middle',
+      cursor: 'pointer',
+      background: '#eee',
+      display: 'inline-block',
+      width: '250px',
+      height: '250px',
+      lineHeight: '250px',
+      margin: theme.spacing.unit * 2,
+      border: '2px solid transparent',
+      backgroundPosition: '50% 50%',
+      backgroundSize: 'cover',
+    }
+  };
+};
+
+class Index extends React.Component {
   static async getInitialProps () {
     // Async load 10 known images from Mia's collection
     const res = await fetch('https://search.artsmia.org/ids/1355,3291,109328,127083,67472,2606,18346,1218');
@@ -55,7 +86,7 @@ export default class Index extends React.Component {
 
   render () {
 
-    const { url, artworks } = this.props;
+    const { classes, url, artworks } = this.props;
 
     return (
       <Page>
@@ -66,7 +97,7 @@ export default class Index extends React.Component {
 
         <h2>Lightbox Links</h2>
 
-        <div className='list'>
+        <div className={classes.list}>
           {
             url.query.showModal &&
               <Modal
@@ -78,9 +109,9 @@ export default class Index extends React.Component {
             artworks.map((artwork) => {
               let id = artwork._source.id;
               return (
-                <div key={id} className='photo'>
+                <div key={id} className={classes.photo}>
                   <a
-                    className='photoLink'
+                    className={classes.photoLink}
                     href={`/artwork/${id}`}
                     onClick={(e) => this.showArtwork(e, id)}
                     style={{backgroundImage: `url('https://1.api.artsmia.org/${id}.jpg')`}}
@@ -97,53 +128,22 @@ export default class Index extends React.Component {
           artworks.map((artwork) => {
             let id = artwork._source.id;
             return (
-              <li key={id}><Link href={`/artwork/${id}`}><a className="permalink">{ artwork._source.title}</a></Link></li>
+              <li key={id}><Link as={`/artwork/${id}`} href={`/artwork?artworkId=${id}`}><a className="permalink">{ artwork._source.title}</a></Link></li>
             );
           })
         }
 
         <li><a href="/does-not-exist">404 example</a> (Unmatched Route)</li>
         <li><a href="/artwork/asdf">404 example</a> (Matched Route but matching data not exist)</li>
-
-        <style jsx>{`
-          .list {
-            padding: 50px;
-            text-align: center;
-          }
-
-          .photo .permalink {
-            display: inline-block;
-          }
-          .photo {
-            display: inline-block;
-            text-align:center
-          }
-
-          .photoLink {
-            color: #333;
-            verticalAlign: middle;
-            cursor: pointer;
-            background: #eee;
-            display: inline-block;
-            width: 250px;
-            height: 250px;
-            line-height: 250px;
-            margin: 10px;
-            border: 2px solid transparent;
-            background-position: 50% 50%;
-            background-size: cover;
-          }
-
-          .photoLink:hover {
-            borderColor: blue;
-          }
-        `}</style>
       </Page>
     );
   }
 }
 
 Index.propTypes = {
+  classes: PropTypes.object,
   url: PropTypes.object,
   artworks: PropTypes.array
 };
+
+export default withRoot(withStyles(styles)(Index));

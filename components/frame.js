@@ -1,22 +1,43 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Button from 'material-ui/Button'
+import Button from 'material-ui/Button';
+import { withStyles } from 'material-ui/styles';
 
-const Frame = ({ artwork }) => {
+const styles = (theme) => ({
+  sidebarList: {
+    'list-style-type': 'none',
+    margin: 0,
+    padding: 0,
+    'text-align': 'center'
+  },
+  sidebar: {
+    'float': 'right',
+    'background': '#fff',
+    'width': '250px',
+    'height': '500px',
+    'text-align': 'left',
+    'box-sizing': 'border-box',
+    'padding': theme.spacing.unit,
+    'font-size': '11px',
+    'font-family': 'Monaco',
+  }
+});
+
+const Frame = ({ classes, artwork }) => {
   let id = artwork.id;
 
   return (
     <div className='photo'>
       <div className='image'></div>
 
-      <div className='sidebar'>
-        <ul className='sidebarList'>
+      <div className={classes.sidebar}>
+        <ul className={classes.sidebarList}>
           <li>
             <h3>{ artwork.title }</h3>
             <p>{ artwork.artist }</p>
 
             <Button target="_new" href={'https://collections.artsmia.org/art/' + id } component="a" variant="raised" color="primary">
-              View on Mia's Site
+              View on Mia Site
             </Button>
           </li>
         </ul>
@@ -24,7 +45,7 @@ const Frame = ({ artwork }) => {
 
       <style jsx>{`
         .photo {
-          width: 800px;
+          width: 100%;
           overflow: hidden;
           height: 500px;
           display: inline-block;
@@ -45,30 +66,14 @@ const Frame = ({ artwork }) => {
           background-size: contain;
           background-repeat:no-repeat
         }
-
-        .sidebar {
-          float: right;
-          background: #fff;
-          width: 250px;
-          height: 500px;
-          text-align: left;
-          box-sizing: border-box;
-          padding: 20px;
-          font-family: Monaco;
-          font-size: 11px;
-        }
-
-        .sidebarList {
-          list-style-type: none;
-          margin: 0;
-          padding: 0;
-        }
       `}</style>
     </div>);
 };
 
 Frame.propTypes = {
+  classes: PropTypes.object,
   artwork: PropTypes.object
 };
 
-export default Frame;
+//export default withRoot(withStyles(styles)(Frame));
+export default withStyles(styles)(Frame);

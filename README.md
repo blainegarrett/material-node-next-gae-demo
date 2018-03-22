@@ -1,7 +1,7 @@
-# node-next-gae-demo
-A working example of running next.js on Google AppEngine's Node Standard Environment Early Access Program.
+# material-node-next-gae-demo
+A working example of running next.js on Google AppEngine's Node Standard Environment Early Access Program with [Material-UI](http://material-ui-next.com)</a>.
 
-**View live demo at [http://node-next-gae-demo.blaine-garrett.appspot.com/](http://node-next-gae-demo.blaine-garrett.appspot.com/)**
+**View live demo at [http://material.node-next-gae-demo.blaine-garrett.appspot.com/](http://material.node-next-gae-demo.blaine-garrett.appspot.com/)**
 
 **Important** Node.js on App Engine Standard is in early access (not even Alpha or Beta). It is provided without guarantee. Read below for more information.
 
@@ -39,12 +39,10 @@ This will deploy your build to the demo version of the `web_standard` service (a
 * Builds are run locally and not on GAE machines. As of the current stable release (5.0.0), Next.js has an issue where absolute paths are embedded into your build files. This means once you deploy, GAE cannot resolve the paths and will error. This issue is fixed in the canary branch of next.js
 
 # About the Demo
-This demo is a compilation of the [nextgram](https://github.com/now-examples/nextgram), [custom-server-express](https://github.com/zeit/next.js/tree/master/examples/custom-server-express) and [head-elements](https://github.com/zeit/next.js/tree/master/examples/head-elements) examples from Next.js
+This demo is a compilation of [Material UIs Next.js example](https://github.com/mui-org/material-ui/tree/v1-beta/examples/nextjs) and [node-next-gae-demo](https://github.com/blainegarrett/material-node-next-gae-demo) which itself is a combo of the [nextgram](https://github.com/now-examples/nextgram), [custom-server-express](https://github.com/zeit/next.js/tree/master/examples/custom-server-express) and [head-elements](https://github.com/zeit/next.js/tree/master/examples/head-elements) examples from Next.js
 
 It pulls data from the Minneapolis Institute of Art's [Elastic Search api](https://github.com/artsmia/collection-elasticsearch).
 
-It demonstrates resoving data dependencies server side (and client side), setting meta content, as well as returing 404 status codes serverside based on the results of the REST data.
+It also demonstrates loading Material-UI and jss, customizing material themes, and using withStyles for custom components.
 
-The demo was presented as part of a lightning talk about Node/Next/GAE at the [React Minneapolis Meetup](https://www.meetup.com/React-Minneapolis-Meetup/) March 15th, 2018 with permission from the GAE Node.js team. [View slides for the presentation](https://docs.google.com/presentation/d/1pUc8VbT4J5ca4qe2zIbqezO6EhLER6E_e5WgsGitDr0/edit?usp=sharing).
-
-
+It also demonstrates resoving data dependencies server side (and client side), setting meta content, as well as returing 404 status codes serverside based on the results of the REST data.

@@ -5,11 +5,27 @@ import 'isomorphic-unfetch';
 import Photo from '../../components/frame';
 import Page from '../../components/Page';
 import Head from 'next/head';
+import withRoot from '../../src/withRoot';
+import { withStyles } from 'material-ui/styles';
 
-export default class ArtworkPage extends React.Component {
+const styles = (theme) => ({
+  permalink: {
+    padding: theme.spacing.unit * 10,
+    'text-align': 'center',
+  },
+  wrap: {
+    display: 'inline-block',
+    border: '1px solid #999',
+    margin: 'auto',
+  }
+});
+
+class ArtworkPage extends React.Component {
   static async getInitialProps (ctx) {
-    //let id = ctx.query.id; // how to access query params
-    let id = ctx.req.params.id;
+    // Get id off query (via <Link as="/artwork?artworkId=..."> and express mapping of params => query)
+
+    let id = ctx.query.artworkId; // Query Params
+    //let id = ctx.req.params.id; // Route Params
 
     // Async load artwork resource
     const res = await fetch('https://search.artsmia.org/id/' + id);
@@ -26,7 +42,7 @@ export default class ArtworkPage extends React.Component {
   }
 
   render() {
-    var { artwork, resourceNotFound} = this.props;
+    var { classes, artwork, resourceNotFound} = this.props;
 
     if (resourceNotFound) {
       return (<Page>Could not find artwork</Page>);
@@ -38,29 +54,21 @@ export default class ArtworkPage extends React.Component {
           <title>{ artwork.title } Next.js demo</title>
         </Head>
 
-        <div className='permalink'>
-          <div className='wrap'>
+        <div className={classes.permalink}>
+          <div className={classes.wrap}>
             <Photo artwork={artwork} />
           </div>
-          <style jsx>{`
-            .permalink {
-              padding: 100px;
-              text-align: center;
-            }
-
-            .wrap {
-              display: inline-block;
-              border: 1px solid #999;
-              margin: auto;
-            }
-          `}</style>
         </div>
       </Page>
     );
   }
 }
 
+
+export default withRoot(withStyles(styles)(ArtworkPage));
+
 ArtworkPage.propTypes = {
+  classes: PropTypes.object,
   artwork: PropTypes.object,
   resourceNotFound: PropTypes.bool
 };

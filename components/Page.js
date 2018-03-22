@@ -21,7 +21,7 @@ const Page = ({ children }) => (
 
     <footer className="footer">
       <div className="footer-inner">
-        <p>Demo is a port of <a href="https://github.com/now-examples/nextgram" target="_new">nextgram Next.js example</a>.</p>
+        <p>Demo is a port of the <a href="https://github.com/blainegarrett/material-node-next-gae-demo">node-material-next-gae</a> demo project and <a href="https://github.com/mui-org/material-ui/tree/v1-beta/examples/nextjs" target="_new">Material-UI Next.js example</a>.</p>
         <p>Artwork data provided by Minneapolis Institute of Arts <a href="https://github.com/artsmia/collection-elasticsearch">Elastic search api</a>. </p>
         <p>Artwork is copyright its respective copyright holders.</p>
       </div>
