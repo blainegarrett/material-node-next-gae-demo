@@ -1,5 +1,5 @@
 import React from 'react';
-import Page from '../components/Page';
+import Page from '../src/components/Page';
 import PropTypes from 'prop-types';
 
 export default class Error extends React.Component {

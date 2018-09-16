@@ -39,15 +39,14 @@
   },
   "homepage": "https://github.com/blainegarrett/material-node-next-gae-demo#readme",
   "dependencies": {
-    "express": "^4.16.2",
-    "isomorphic-unfetch": "^2.0.0",
+    "express": "^4.16.3",
+    "isomorphic-unfetch": "^2.1.1",
     "jss": "^9.8.1",
-    "material-ui": "^1.0.0-beta.38",
-    "material-ui-icons": "^1.0.0-beta.36",
-    "next": "^5.0.1-canary.15",
+    "@material-ui/core": "^1.5.1",
+    "next": "^6.1.2",
     "prop-types": "^15.6.1",
-    "react": "^16.2.0",
-    "react-dom": "^16.2.0",
+    "react": "^16.4.2",
+    "react-dom": "^16.4.2",
     "react-jss": "^8.3.5"
   },
   "devDependencies": {

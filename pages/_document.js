@@ -1,9 +1,7 @@
-// Note: This is basically stock version of https://github.com/mui-org/material-ui/blob/v1-beta/examples/nextjs/pages/_document.js
 import React from 'react';
+import PropTypes from 'prop-types';
 import Document, { Head, Main, NextScript } from 'next/document';
-import JssProvider from 'react-jss/lib/JssProvider';
 import flush from 'styled-jsx/server';
-import getPageContext from '../src/getPageContext';
 
 class MyDocument extends Document {
   render() {
@@ -25,6 +23,7 @@ class MyDocument extends Document {
           {/* PWA primary color */}
           <meta name="theme-color" content={pageContext.theme.palette.primary.dark} />
           <link href="https://fonts.googleapis.com/css?family=Titillium+Web" rel="stylesheet" />
+          <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
         </Head>
         <body>
           <Main />
@@ -53,21 +52,25 @@ MyDocument.getInitialProps = ctx => {
   // 1. page.getInitialProps
   // 3. page.render
 
-  // Get the context of the page to collected side effects.
-  const pageContext = getPageContext();
+  // Render app and page and get the context of the page with collected side effects.
+  let pageContext;
+  const page = ctx.renderPage(Component => {
+    const WrappedComponent = props => {
+      pageContext = props.pageContext;
+      return <Component {...props} />;
+    };
 
-  const page = ctx.renderPage(Component => props => (
-    <JssProvider
-      registry={pageContext.sheetsRegistry}
-      generateClassName={pageContext.generateClassName}
-    >
-      <Component pageContext={pageContext} {...props} />
-    </JssProvider>
-  ));
+    WrappedComponent.propTypes = {
+      pageContext: PropTypes.object.isRequired,
+    };
+
+    return WrappedComponent;
+  });
 
   return {
     ...page,
     pageContext,
+    // Styles fragment is rendered after the app and page rendering finish.
     styles: (
       <React.Fragment>
         <style

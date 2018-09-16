@@ -2,11 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import 'isomorphic-unfetch';
-import Photo from '../../components/frame';
-import Page from '../../components/Page';
+import Photo from '../../src/components/frame';
+import Page from '../../src/components/Page';
 import Head from 'next/head';
-import withRoot from '../../src/withRoot';
-import { withStyles } from 'material-ui/styles';
+import { withStyles } from '@material-ui/core/styles';
 
 const styles = (theme) => ({
   permalink: {
@@ -65,7 +64,7 @@ class ArtworkPage extends React.Component {
 }
 
 
-export default withRoot(withStyles(styles)(ArtworkPage));
+export default withStyles(styles)(ArtworkPage);
 
 ArtworkPage.propTypes = {
   classes: PropTypes.object,

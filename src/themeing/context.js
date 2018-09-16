@@ -1,33 +1,12 @@
 /* eslint-disable no-underscore-dangle */
 
 import { SheetsRegistry } from 'jss';
-import { createMuiTheme, createGenerateClassName } from 'material-ui/styles';
-import purple from 'material-ui/colors/purple';
-import green from 'material-ui/colors/green';
-
-// A theme with custom primary and secondary color.
-// It's optional.
-const theme = createMuiTheme({
-  typography: {
-    //fontFamily: '"Titillium Web", sans-serif',
-  },
-  palette: {
-    primary: {
-      light: purple[300],
-      main: purple[500],
-      dark: purple[700],
-    },
-    secondary: {
-      light: green[300],
-      main: green[500],
-      dark: green[700],
-    },
-  },
-});
+import { createGenerateClassName } from '@material-ui/core/styles';
+import muiTheme from './theme';
 
 function createPageContext() {
   return {
-    theme,
+    theme: muiTheme,
     // This is needed in order to deduplicate the injection of CSS in the page.
     sheetsManager: new Map(),
     // This is needed in order to inject the critical CSS.

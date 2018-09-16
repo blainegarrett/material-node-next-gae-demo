@@ -1,15 +1,14 @@
 import React from 'react';
-import Router from 'next/router';
+import { withRouter } from 'next/router';
 import PropTypes from 'prop-types';
-import { withStyles } from 'material-ui/styles';
-import withRoot from '../src/withRoot';
 
+import { withStyles } from '@material-ui/core/styles';
 import 'isomorphic-unfetch';
 import Head from 'next/head';
 import Link from 'next/link';
 
-import Page from '../components/Page';
-import Modal from '../components/modal';
+import Page from '../src/components/Page';
+import Modal from '../src/components/modal';
 
 const styles = (theme) => {
   return {
@@ -64,19 +63,19 @@ class Index extends React.Component {
   }
 
   onKeyDown (e) {
-    if (!this.props.url.query.photoId) return;
+    if (!this.props.router.query.showModal) return;
     if (e.keyCode === 27) {
-      this.props.url.back();
+      this.props.router.back();
     }
   }
 
   dismissModal () {
-    Router.push('/');
+    this.props.router.push('/');
   }
 
   showArtwork (e, id) {
     e.preventDefault();
-    Router.push(`/?showModal=${id}`, `/artwork/${id}`);
+    this.props.router.push(`/?showModal=${id}`, `/artwork/${id}`);
   }
 
   selectArtworkById(id) {
@@ -86,7 +85,7 @@ class Index extends React.Component {
 
   render () {
 
-    const { classes, url, artworks } = this.props;
+    const { classes, router, artworks } = this.props;
 
     return (
       <Page>
@@ -99,9 +98,9 @@ class Index extends React.Component {
 
         <div className={classes.list}>
           {
-            url.query.showModal &&
+            router.query.showModal &&
               <Modal
-                artwork={this.selectArtworkById(url.query.showModal)}
+                artwork={this.selectArtworkById(router.query.showModal)}
                 onDismiss={() => this.dismissModal()}
               />
           }
@@ -134,7 +133,7 @@ class Index extends React.Component {
         }
 
         <li><a href="/does-not-exist">404 example</a> (Unmatched Route)</li>
-        <li><a href="/artwork/asdf">404 example</a> (Matched Route but matching data not exist)</li>
+        <li><a href="/artwork/asdf1234">404 example</a> (Matched Route but matching data not exist)</li>
       </Page>
     );
   }
@@ -142,8 +141,8 @@ class Index extends React.Component {
 
 Index.propTypes = {
   classes: PropTypes.object,
-  url: PropTypes.object,
+  router: PropTypes.any,
   artworks: PropTypes.array
 };
 
-export default withRoot(withStyles(styles)(Index));
+export default withStyles(styles)(withRouter(Index));
