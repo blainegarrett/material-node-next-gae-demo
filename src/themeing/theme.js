@@ -5,6 +5,7 @@ import green from '@material-ui/core/colors/green';
 
 const muiTheme = createMuiTheme({
   typography: {
+    useNextVariants: true
     //fontFamily: '"Titillium Web", sans-serif',
   },
   palette: {

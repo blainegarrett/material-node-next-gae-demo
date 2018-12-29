@@ -36,7 +36,7 @@ const Frame = ({ classes, artwork }) => {
             <h3>{ artwork.title }</h3>
             <p>{ artwork.artist }</p>
 
-            <Button target="_new" href={'https://collections.artsmia.org/art/' + id } component="a" variant="raised" color="primary">
+            <Button target="_new" href={'https://collections.artsmia.org/art/' + id } component="a" variant="contained" color="primary">
               View on Mia Site
             </Button>
           </li>

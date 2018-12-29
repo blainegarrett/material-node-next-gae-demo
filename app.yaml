@@ -1,6 +1,6 @@
-runtime: nodejs8
+runtime: nodejs10
 
 service: node-next-gae-demo
 handlers:
 - url: /.*
-  script: server.js # Note as of March 13, handlers are not yet obeyed.
+  script: auto

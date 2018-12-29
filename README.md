@@ -3,7 +3,7 @@ A working example of running next.js on Google AppEngine's Node Standard Environ
 
 **View live demo at [http://material.node-next-gae-demo.blaine-garrett.appspot.com/](http://material.node-next-gae-demo.blaine-garrett.appspot.com/)**
 
-**Important** Node.js on App Engine Standard is in early access (not even Alpha or Beta). It is provided without guarantee. Read below for more information.
+**Important** Node.js on App Engine Standard is in Beta. It is provided without guarantee. Read below for more information.
 
 # Development
 Note: You need [node](https://nodejs.org) installed. I am using v6.10.2
@@ -17,9 +17,10 @@ Note: You need [node](https://nodejs.org) installed. I am using v6.10.2
 **Running Build Locally:** `npm run start` # runs `NODE_ENV=production node server.js` Point browser to localhost:8000
 
 # Deploying to Google App Engine
-This will deploy your build to the demo version of the `web_standard` service (as defined in app.yaml) in your *<your_project_id>* project. Learn more about [services](https://cloud.google.com/appengine/docs/standard/python/microservices-on-app-engine) and [versions](https://cloud.google.com/appengine/docs/admin-api/deploying-apps) in GAE).
+This will deploy your build to a version of the `node-next-gae-demo` service (as defined in app.yaml) in your *<your_project_id>* project. Learn more about [services](https://cloud.google.com/appengine/docs/standard/python/microservices-on-app-engine) and [versions](https://cloud.google.com/appengine/docs/admin-api/deploying-apps) in GAE).
 
-`gcloud --project your_project_id app deploy app.yaml --version demo`
+`gcloud --project your_project_id app deploy app.yaml --version version_name`
+eg: `gcloud --project blaine-garrett app deploy app.yaml --version material`
 
 
 **Prerequisites**:
@@ -30,13 +31,12 @@ This will deploy your build to the demo version of the `web_standard` service (a
 
 # Important Notes for GAE
 * Unlike other runtimes supported by App Engine, you cannot run your application locally via dev_appserver.py or equivalent. You must use the node runtime installed to your machine.
-* As of March 13th, 2018 not all Google Cloud and App Engine features are available yet in the EAP.
-* Remember that Node.js on App Engine Standard is in early access (not even Alpha or Beta). It is provided without guarantee. You should not rely on it and only use it for testing purposes. Please do not do scale or load testing.
-* Finally, If you need stable Node.js support immediatly, consider using the Flexible Environment which uses dockerized containers on VMs. [More info here](https://cloud.google.com/appengine/docs/flexible/nodejs/)
+* As of Dec 29th, 2018 not all Google Cloud and App Engine features are available yet in the Beta.
+* Remember that Node.js on App Engine Standard is in Beta. It is provided without guarantee. You should not rely on it and only use it for testing purposes. Please do not do scale or load testing.
+* Finally, If you need stable Node.js support immediately, consider using the Flexible Environment which uses dockerized containers on VMs. [More info here](https://cloud.google.com/appengine/docs/flexible/nodejs/)
 
 # Important Notes for Next.js
 * As of March 13th, 2018, files and folders are automatically skipped during deploy if they start with a `.`. This means the default .build directory must be renamed using the `distDir` setting in ./next.config
-* Builds are run locally and not on GAE machines. As of the current stable release (5.0.0), Next.js has an issue where absolute paths are embedded into your build files. This means once you deploy, GAE cannot resolve the paths and will error. This issue is fixed in the canary branch of next.js
 
 # About the Demo
 This demo is a compilation of [Material UIs Next.js example](https://github.com/mui-org/material-ui/tree/v1-beta/examples/nextjs) and [node-next-gae-demo](https://github.com/blainegarrett/material-node-next-gae-demo) which itself is a combo of the [nextgram](https://github.com/now-examples/nextgram), [custom-server-express](https://github.com/zeit/next.js/tree/master/examples/custom-server-express) and [head-elements](https://github.com/zeit/next.js/tree/master/examples/head-elements) examples from Next.js
@@ -45,4 +45,4 @@ It pulls data from the Minneapolis Institute of Art's [Elastic Search api](https
 
 It also demonstrates loading Material-UI and jss, customizing material themes, and using withStyles for custom components.
 
-It also demonstrates resoving data dependencies server side (and client side), setting meta content, as well as returing 404 status codes serverside based on the results of the REST data.
+It also demonstrates resolving data dependencies server side (and client side), setting meta content, as well as returing 404 status codes serverside based on the results of the REST data.
