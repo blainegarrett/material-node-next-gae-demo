@@ -1,6 +1,11 @@
 # material-node-next-gae-demo
 A working example of running next.js on Google AppEngine's Node Standard Environment Early Access Program with [Material-UI](http://material-ui-next.com)</a>.
 
+**Update**: This has been updated 2018-12-29 to work with:
+* nodejs10 runtime on Appengine
+* Next.js 7.0.2
+* Material-UI 3.7.1
+
 **View live demo at [http://material.node-next-gae-demo.blaine-garrett.appspot.com/](http://material.node-next-gae-demo.blaine-garrett.appspot.com/)**
 
 **Important** Node.js on App Engine Standard is in Beta. It is provided without guarantee. Read below for more information.
