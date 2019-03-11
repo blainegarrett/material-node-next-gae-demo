@@ -1,8 +1,6 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { withStyles } from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/styles';
 
-const globalStyles = (theme) => {
+const useStyles = makeStyles(theme => {
   return {
     '@global': {
       'html': {
@@ -42,16 +40,9 @@ const globalStyles = (theme) => {
       }
     }
   };
-};
+});
 
-class GlobalStyles extends React.Component {
-  componentDidMount() {
-    const jssStyles = document.getElementById('jss-server-side');
-    if (jssStyles && jssStyles.parentNode) {
-      jssStyles.parentNode.removeChild(jssStyles);
-    }
-  }
-  render() { return null; }
+export default function GlobalStyles() {
+  useStyles();
+  return null;
 }
-
-export default withStyles(globalStyles)(GlobalStyles);
