@@ -1,18 +1,18 @@
 # material-node-next-gae-demo
-A simple working example of running [Next.js](https://nextjs.org/) on Google App Engine's [Node Standard Environment] with [Material-UI](http://material-ui.com).
+A simple working example of running [Next.js](https://nextjs.org/) on Google App Engine's [Node Standard Environment](https://cloud.google.com/appengine/docs/standard/nodejs/) with [Material-UI](http://material-ui.com).
 
 **Update**:
 * 2019-03-09:
- * Upgraded to Next.js 8.0.3
- * Upgraded react and react dom to 16.8.3 (aka "the one with hooks")
- * Various other package updates
- * Using new @material-ui/styles alpha to prep for MUI 4
- * Added example of using custom theme variables that are accessed in makeStyles hooks
+  * Upgraded to Next.js 8.0.3
+  * Upgraded react and react dom to 16.8.3 (aka "the one with hooks")
+  * Various other package updates
+  * Using new @material-ui/styles alpha to prep for MUI 4
+  * Added example of using custom theme variables that are accessed in makeStyles hooks
 
 * 2018-12-29:
- * Updated to use nodejs10 runtime on App Engine
- * Upgraded to Next.js 7.0.2
- * Material-UI 3.7.1
+  * Updated to use nodejs10 runtime on App Engine
+  * Upgraded to Next.js 7.0.2
+  * Material-UI 3.7.1
 
 # Live Demo
 **View live demo at [http://material.node-next-gae-demo.blaine-garrett.appspot.com/](http://material.node-next-gae-demo.blaine-garrett.appspot.com/)**
