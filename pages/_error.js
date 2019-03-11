@@ -1,3 +1,4 @@
+import '../src/theming/mui_bootstrap';
 import React from 'react';
 import Page from '../src/components/Page';
 import PropTypes from 'prop-types';

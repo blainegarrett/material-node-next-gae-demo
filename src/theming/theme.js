@@ -20,6 +20,9 @@ const muiTheme = createMuiTheme({
       dark: green[700],
     },
   },
+
+  // Custom Variables available in makeStyles
+  artworkListSize: '250px'
 });
 
 export default muiTheme;

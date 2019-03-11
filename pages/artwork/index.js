@@ -1,13 +1,14 @@
+import '../../src/theming/mui_bootstrap';
 import React from 'react';
 import PropTypes from 'prop-types';
 
 import 'isomorphic-unfetch';
+import { makeStyles } from '@material-ui/styles';
 import Photo from '../../src/components/frame';
 import Page from '../../src/components/Page';
 import Head from 'next/head';
-import { withStyles } from '@material-ui/core/styles';
 
-const styles = (theme) => ({
+const useStyles = makeStyles(theme => ({
   permalink: {
     padding: theme.spacing.unit * 10,
     'text-align': 'center',
@@ -17,7 +18,26 @@ const styles = (theme) => ({
     border: '1px solid #999',
     margin: 'auto',
   }
-});
+}));
+
+
+// Not a huge fan of multiple components in the same file.
+// See my question at: https://spectrum.chat/?t=d9eac407-02bd-4823-a7b7-8e8185c573ea
+function ArtworkPageContent ({artwork}) {
+  let classes = useStyles();
+  return (
+    <div className={classes.permalink}>
+      <div className={classes.wrap}>
+        <Photo artwork={artwork} />
+      </div>
+    </div>
+  );
+}
+
+ArtworkPageContent.propTypes = {
+  artwork: PropTypes.object
+};
+
 
 class ArtworkPage extends React.Component {
   static async getInitialProps (ctx) {
@@ -41,7 +61,7 @@ class ArtworkPage extends React.Component {
   }
 
   render() {
-    var { classes, artwork, resourceNotFound} = this.props;
+    var { artwork, resourceNotFound} = this.props;
 
     if (resourceNotFound) {
       return (<Page>Could not find artwork</Page>);
@@ -53,18 +73,14 @@ class ArtworkPage extends React.Component {
           <title>{ artwork.title } Next.js demo</title>
         </Head>
 
-        <div className={classes.permalink}>
-          <div className={classes.wrap}>
-            <Photo artwork={artwork} />
-          </div>
-        </div>
+        <ArtworkPageContent artwork={artwork}/>
       </Page>
     );
   }
 }
 
 
-export default withStyles(styles)(ArtworkPage);
+export default ArtworkPage;
 
 ArtworkPage.propTypes = {
   classes: PropTypes.object,

@@ -1,23 +1,22 @@
+import '../src/theming/mui_bootstrap';
 import React from 'react';
 import App, { Container } from 'next/app';
-import { MuiThemeProvider } from '@material-ui/core/styles';
+import Head from 'next/head';
+import { StylesProvider, ThemeProvider } from '@material-ui/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
-import JssProvider from 'react-jss/lib/JssProvider';
-import getPageContext from '../src/themeing/context';
-import GlobalStyles from '../src/themeing/GlobalStyles';
+import GlobalStyles from '../src/theming/GlobalStyles';
+import getPageContext from '../src/theming/getPageContext';
 
 class MyApp extends App {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
     this.pageContext = getPageContext();
   }
-
-  pageContext = null;
 
   componentDidMount() {
     // Remove the server-side injected CSS.
     const jssStyles = document.querySelector('#jss-server-side');
-    if (jssStyles && jssStyles.parentNode) {
+    if (jssStyles) {
       jssStyles.parentNode.removeChild(jssStyles);
     }
   }
@@ -26,25 +25,26 @@ class MyApp extends App {
     const { Component, pageProps } = this.props;
     return (
       <Container>
-        {/* Wrap every page in Jss and Theme providers */}
-        <JssProvider
-          registry={this.pageContext.sheetsRegistry}
+        <Head>
+          <title>My page</title>
+        </Head>
+        {/* Wrap every page in Styles and Theme providers */}
+        <StylesProvider
           generateClassName={this.pageContext.generateClassName}
+          sheetsRegistry={this.pageContext.sheetsRegistry}
+          sheetsManager={this.pageContext.sheetsManager}
         >
-          {/* MuiThemeProvider makes the theme available down the React
+          {/* ThemeProvider makes the theme available down the React
               tree thanks to React context. */}
-          <MuiThemeProvider
-            theme={this.pageContext.theme}
-            sheetsManager={this.pageContext.sheetsManager}
-          >
+          <ThemeProvider theme={this.pageContext.theme}>
             {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
             <CssBaseline />
             <GlobalStyles />
             {/* Pass pageContext to the _document though the renderPage enhancer
-                to render collected styles on server side. */}
+                to render collected styles on server-side. */}
             <Component pageContext={this.pageContext} {...pageProps} />
-          </MuiThemeProvider>
-        </JssProvider>
+          </ThemeProvider>
+        </StylesProvider>
       </Container>
     );
   }
