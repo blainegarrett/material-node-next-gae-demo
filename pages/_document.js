@@ -19,10 +19,18 @@ class MyDocument extends Document {
           {/* PWA primary color */}
           <meta
             name="theme-color"
-            content={pageContext ? pageContext.theme.palette.primary.main : null}
+            content={
+              pageContext ? pageContext.theme.palette.primary.main : null
+            }
           />
-          <link href="https://fonts.googleapis.com/css?family=Titillium+Web" rel="stylesheet" />
-          <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+          <link
+            href="https://fonts.googleapis.com/css?family=Titillium+Web"
+            rel="stylesheet"
+          />
+          <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/icon?family=Material+Icons"
+          />
         </Head>
         <body>
           <Main />
@@ -65,7 +73,7 @@ MyDocument.getInitialProps = ctx => {
     };
 
     WrappedComponent.propTypes = {
-      pageContext: PropTypes.object.isRequired,
+      pageContext: PropTypes.object.isRequired
     };
 
     return WrappedComponent;
@@ -75,6 +83,9 @@ MyDocument.getInitialProps = ctx => {
   // It might be undefined, e.g. after an error.
   if (pageContext) {
     css = pageContext.sheetsRegistry.toString();
+
+    console.log(css);
+    console.log(pageContext.sheetsManager);
   }
 
   return {
@@ -90,7 +101,7 @@ MyDocument.getInitialProps = ctx => {
         />
         {flush() || null}
       </React.Fragment>
-    ),
+    )
   };
 };
 
