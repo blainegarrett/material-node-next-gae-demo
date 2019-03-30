@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Button from '@material-ui/core/Button';
 import { withStyles } from '@material-ui/styles';
 
-const styles = (theme) => ({
+const styles = theme => ({
   sidebarList: {
     'list-style-type': 'none',
     margin: 0,
@@ -11,15 +11,15 @@ const styles = (theme) => ({
     'text-align': 'center'
   },
   sidebar: {
-    'float': 'right',
-    'background': '#fff',
-    'width': '250px',
-    'height': '500px',
+    float: 'right',
+    background: '#fff',
+    width: '250px',
+    height: '500px',
     'text-align': 'left',
     'box-sizing': 'border-box',
-    'padding': theme.spacing.unit,
+    padding: theme.spacing(1),
     'font-size': '11px',
-    'font-family': 'Monaco',
+    'font-family': 'Monaco'
   }
 });
 
@@ -27,16 +27,22 @@ const Frame = ({ classes, artwork }) => {
   let id = artwork.id;
 
   return (
-    <div className='photo'>
-      <div className='image'></div>
+    <div className="photo">
+      <div className="image" />
 
       <div className={classes.sidebar}>
         <ul className={classes.sidebarList}>
           <li>
-            <h3>{ artwork.title }</h3>
-            <p>{ artwork.artist }</p>
+            <h3>{artwork.title}</h3>
+            <p>{artwork.artist}</p>
 
-            <Button target="_new" href={'https://collections.artsmia.org/art/' + id } component="a" variant="contained" color="primary">
+            <Button
+              target="_new"
+              href={'https://collections.artsmia.org/art/' + id}
+              component="a"
+              variant="contained"
+              color="primary"
+            >
               View on Mia Site
             </Button>
           </li>
@@ -67,7 +73,8 @@ const Frame = ({ classes, artwork }) => {
           background-repeat:no-repeat
         }
       `}</style>
-    </div>);
+    </div>
+  );
 };
 
 Frame.propTypes = {

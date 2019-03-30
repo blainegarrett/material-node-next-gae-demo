@@ -7,7 +7,8 @@ A simple working example of running [Next.js](https://nextjs.org/) on Google App
   * Removed isopmorphic-unfetch in lieu of axios
   * Added gzip compression
   * Minor prep for PWA
-  
+  * Upgraded material-ui packages 4.0.0-alpha and removed the bootstrap requirement for core 3.9
+
 * 2019-03-09:
   * Upgraded to Next.js 8.0.3
   * Upgraded react and react dom to 16.8.3 (aka "the one with hooks")

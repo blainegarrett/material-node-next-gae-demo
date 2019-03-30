@@ -6,7 +6,7 @@ import Modal from './modal';
 const useStyles = makeStyles(theme => {
   return {
     list: {
-      padding: theme.spacing.unit * 6,
+      padding: theme.spacing(6),
       'text-align': 'center'
     },
     photopermalink: {
@@ -25,7 +25,7 @@ const useStyles = makeStyles(theme => {
       width: theme.artworkListSize,
       height: theme.artworkListSize,
       lineHeight: theme.artworkListSize,
-      margin: theme.spacing.unit * 2,
+      margin: theme.spacing(2),
       border: '2px solid transparent',
       backgroundPosition: '50% 50%',
       backgroundSize: 'cover'

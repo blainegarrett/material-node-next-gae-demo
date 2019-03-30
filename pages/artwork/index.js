@@ -1,4 +1,3 @@
-import '../../src/theming/mui_bootstrap';
 import React from 'react';
 import PropTypes from 'prop-types';
 
@@ -10,7 +9,7 @@ import Head from 'next/head';
 
 const useStyles = makeStyles(theme => ({
   permalink: {
-    padding: theme.spacing.unit * 10,
+    padding: theme.spacing(10),
     'text-align': 'center'
   },
   wrap: {

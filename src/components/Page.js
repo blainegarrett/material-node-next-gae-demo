@@ -51,7 +51,7 @@ const Page = ({ children }) => (
         padding: 10px 0 300px 0;
       }
       .page {
-        color: #828282;
+        color: #555555;
         background: #fff;
         padding: 3px 10px;
       }
