@@ -2,6 +2,12 @@
 A simple working example of running [Next.js](https://nextjs.org/) on Google App Engine's [Node Standard Environment](https://cloud.google.com/appengine/docs/standard/nodejs/) with [Material-UI](http://material-ui.com).
 
 **Update**:
+* 2019-03-30:
+  * Upgraded eslint to avoid js-yaml security vulnerability
+  * Removed isopmorphic-unfetch in lieu of axios
+  * Added gzip compression
+  * Minor prep for PWA
+  
 * 2019-03-09:
   * Upgraded to Next.js 8.0.3
   * Upgraded react and react dom to 16.8.3 (aka "the one with hooks")

@@ -10,6 +10,11 @@ class MyDocument extends Document {
     return (
       <html lang="en" dir="ltr">
         <Head>
+          <meta
+            name="description"
+            content="A boiler plate of using Next.js on Node for Google App Engine Standard Environment"
+          />
+
           <meta charSet="utf-8" />
           {/* Use minimum-scale=1 to enable GPU rasterization */}
           <meta
@@ -20,7 +25,7 @@ class MyDocument extends Document {
           <meta
             name="theme-color"
             content={
-              pageContext ? pageContext.theme.palette.primary.main : null
+              pageContext ? pageContext.theme.palette.primary.main : '#551A8B'
             }
           />
           <link
@@ -83,9 +88,6 @@ MyDocument.getInitialProps = ctx => {
   // It might be undefined, e.g. after an error.
   if (pageContext) {
     css = pageContext.sheetsRegistry.toString();
-
-    console.log(css);
-    console.log(pageContext.sheetsManager);
   }
 
   return {

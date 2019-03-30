@@ -1,6 +1,6 @@
 {
   "name": "node-next-gae-demo",
-  "version": "0.0.4",
+  "version": "v0.1.1",
   "description": "A universal react next.js app using material-ui designed to work for Google App Engine's Node.js Early Access Program",
   "main": "server.js",
   "scripts": {
@@ -42,8 +42,9 @@
     "@material-ui/core": "^3.9.2",
     "@material-ui/icons": "^3.0.2",
     "@material-ui/styles": "^3.0.0-alpha.10",
+    "axios": "^0.18.0",
+    "compression": "^1.7.4",
     "express": "^4.16.4",
-    "isomorphic-unfetch": "^2.1.1",
     "jss": "^9.8.7",
     "next": "^8.0.3",
     "prop-types": "^15.6.1",
@@ -52,9 +53,9 @@
     "react-jss": "^8.6.1"
   },
   "devDependencies": {
-    "babel-eslint": "^8.2.2",
-    "eslint": "^4.18.2",
-    "eslint-plugin-react": "^7.7.0",
-    "eslint-plugin-react-hooks": "^1.4.0"
+    "babel-eslint": "^10.0.1",
+    "eslint": "^5.15.1",
+    "eslint-plugin-react": "^7.12.4",
+    "eslint-plugin-react-hooks": "^1.5.0"
   }
 }
