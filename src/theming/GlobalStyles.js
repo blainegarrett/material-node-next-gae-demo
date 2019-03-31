@@ -3,25 +3,25 @@ import { makeStyles } from '@material-ui/styles';
 const useStyles = makeStyles(theme => {
   return {
     '@global': {
-      'html': {
+      html: {
         'font-family': 'sans-serif',
         '-webkit-font-smoothing': 'unset',
         '-moz-osx-font-smoothing': 'unset',
-        'font-size': '13px',
+        'font-size': '16px'
       },
-      'a': {
+      a: {
         color: theme.palette.primary[500],
         textDecoration: 'none',
         '&:hover': {
           textDecoration: 'underline'
-        },
+        }
       },
-      'p': {
-        'color': '#555',
+      p: {
+        color: '#555',
         'line-height': '1.6'
       },
       'li, p': {
-        'color': '#555',
+        color: '#555',
         'line-height': '1.6'
       },
 
@@ -36,7 +36,7 @@ const useStyles = makeStyles(theme => {
 
       'ul, ol': {
         'margin-top': 0,
-        'margin-bottom': '10px',
+        'margin-bottom': '10px'
       }
     }
   };
