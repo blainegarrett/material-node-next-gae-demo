@@ -2,6 +2,12 @@
 A simple working example of running [Next.js](https://nextjs.org/) on Google App Engine's [Node Standard Environment](https://cloud.google.com/appengine/docs/standard/nodejs/) with [Material-UI](http://material-ui.com).
 
 **Update**:
+* 2019-05-26:
+  * Upgraded Next to v8.1.0
+  * Upgraded Material-UI to 4.0.0 stable release
+  * Removed pageContext concept in lieu of the ServerStyleSheets
+  * Converted inline layout styles to useStyles in PageBase
+
 * 2019-03-30:
   * Upgraded eslint to avoid js-yaml security vulnerability
   * Removed isopmorphic-unfetch in lieu of axios
