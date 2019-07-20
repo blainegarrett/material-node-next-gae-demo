@@ -1,7 +1,7 @@
 import React from 'react';
 import App, { Container } from 'next/app';
 import Head from 'next/head';
-import { ThemeProvider } from '@material-ui/styles';
+import { ThemeProvider, StylesProvider } from '@material-ui/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import GlobalStyles from '../src/theming/GlobalStyles';
 import theme from '../src/theming/theme';
@@ -23,12 +23,15 @@ class MyApp extends App {
         <Head>
           <title>My page</title>
         </Head>
-        <ThemeProvider theme={theme}>
-          {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
-          <CssBaseline />
-          <GlobalStyles />
-          <Component {...pageProps} />
-        </ThemeProvider>
+        <StylesProvider injectFirst={true}>
+          <ThemeProvider theme={theme}>
+            {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
+            <CssBaseline />
+            <GlobalStyles />
+
+            <Component {...pageProps} />
+          </ThemeProvider>
+        </StylesProvider>
       </Container>
     );
   }
