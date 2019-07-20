@@ -2,21 +2,24 @@
 A simple working example of running [Next.js](https://nextjs.org/) on Google App Engine's [Node Standard Environment](https://cloud.google.com/appengine/docs/standard/nodejs/) with [Material-UI](http://material-ui.com).
 
 **Update**:
-* 2019-03-30:
+* v0.1.2 - 2019-06-20
+  * Upgraded axios, js-yaml, and lodash packages for security
+
+* v0.1.1 - 2019-03-30:
   * Upgraded eslint to avoid js-yaml security vulnerability
   * Removed isopmorphic-unfetch in lieu of axios
   * Added gzip compression
   * Minor prep for PWA
   * Upgraded material-ui packages 4.0.0-alpha and removed the bootstrap requirement for core 3.9
 
-* 2019-03-09:
+* v0.1.0 - 2019-03-09:
   * Upgraded to Next.js 8.0.3
   * Upgraded react and react dom to 16.8.3 (aka "the one with hooks")
   * Various other package updates
   * Using new @material-ui/styles alpha to prep for MUI 4
   * Added example of using custom theme variables that are accessed in makeStyles hooks
 
-* 2018-12-29:
+* v0.0.4 - 2018-12-29:
   * Updated to use nodejs10 runtime on App Engine
   * Upgraded to Next.js 7.0.2
   * Material-UI 3.7.1
