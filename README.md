@@ -2,6 +2,13 @@
 A simple working example of running [Next.js](https://nextjs.org/) on Google App Engine's [Node Standard Environment](https://cloud.google.com/appengine/docs/standard/nodejs/) with [Material-UI](http://material-ui.com).
 
 **Update**:
+* v0.2.2 - 2019-07-21
+  * Upgraded to [Next.js 9](https://nextjs.org/blog/next-9)
+  * Switched routing to Next.js 9's [filebased routing](https://github.com/zeit/next.js#dynamic-routing) and removed routes from server.js
+  * Retooled `start` script for better deployed ngnix performance
+  * Introduced `start-local` for separating local run from deployed runs
+  * Upgraded various packages including Material-UI
+
 * v0.2.1 - 2019-07-20:
   * Adding uncommitted \_app.js tht upgrades the StylesProvider
   * Upgrading lodash, axios, js-yaml packages for security updates
@@ -47,7 +54,8 @@ Note: You need [node](https://nodejs.org) installed. I am using v8.11.3
 
 **Production Build:** `npm run build` (Note: It is a good idea to remove your ./build dir before build/deploy to remove unused build files)
 
-**Running Build Locally:** `npm run start` # runs `NODE_ENV=production node server.js` Point browser to localhost:8000
+**Running Production Build Locally:** `npm run start-local` Point browser to localhost:8080
+
 
 # Deploying to Google App Engine
 This will deploy your build to a version of the `node-next-gae-demo` service (as defined in app.yaml) in your *<your_project_id>* project. Learn more about [services](https://cloud.google.com/appengine/docs/standard/python/microservices-on-app-engine) and [versions](https://cloud.google.com/appengine/docs/admin-api/deploying-apps) in GAE).

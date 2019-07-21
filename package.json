@@ -1,12 +1,13 @@
 {
   "name": "node-next-gae-demo",
-  "version": "v0.2.1",
+  "version": "v0.2.2",
   "description": "A universal react next.js app using material-ui designed to work for Google App Engine's Node.js Standard Environment",
   "main": "server.js",
   "scripts": {
     "dev": "node server.js",
     "build": "next build",
-    "start": "NODE_ENV=production node server.js",
+    "start": "node server.js",
+    "start-local": "NODE_ENV=production PORT=8080 node server.js",
     "lint": "eslint .",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
