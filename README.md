@@ -61,6 +61,7 @@ Note: You need [node](https://nodejs.org) installed. I am using v8.11.3
 This will deploy your build to a version of the `node-next-gae-demo` service (as defined in app.yaml) in your *<your_project_id>* project. Learn more about [services](https://cloud.google.com/appengine/docs/standard/python/microservices-on-app-engine) and [versions](https://cloud.google.com/appengine/docs/admin-api/deploying-apps) in GAE).
 
 `gcloud --project your_project_id app deploy app.yaml --version version_name --verbosity=debug`
+
 eg: `gcloud --project blaine-garrett app deploy app.yaml --version material --verbosity=debug`
 
 
@@ -77,7 +78,7 @@ eg: `gcloud --project blaine-garrett app deploy app.yaml --version material --ve
 * As of March 13th, 2018, files and folders are automatically skipped during deploy if they start with a `.`. This means the default .build directory must be renamed using the `distDir` setting in ./next.config
 
 # About the Demo
-This demo is a compilation of [Material UIs Next.js example](https://github.com/mui-org/material-ui/tree/v1-beta/examples/nextjs) and [node-next-gae-demo](https://github.com/blainegarrett/material-node-next-gae-demo) which itself is a combo of the [nextgram](https://github.com/now-examples/nextgram), [custom-server-express](https://github.com/zeit/next.js/tree/master/examples/custom-server-express) and [head-elements](https://github.com/zeit/next.js/tree/master/examples/head-elements) examples from Next.js
+This demo is a compilation of [Material UIs Next.js example](https://github.com/mui-org/material-ui/tree/v1-beta/examples/nextjs) and [node-next-gae-demo](https://github.com/blainegarrett/node-next-gae-demo) which itself is a combo of the [nextgram](https://github.com/now-examples/nextgram), [custom-server-express](https://github.com/zeit/next.js/tree/master/examples/custom-server-express) and [head-elements](https://github.com/zeit/next.js/tree/master/examples/head-elements) examples from Next.js
 
 It pulls data from the Minneapolis Institute of Art's [Elastic Search api](https://github.com/artsmia/collection-elasticsearch).
 
