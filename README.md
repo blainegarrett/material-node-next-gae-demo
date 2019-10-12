@@ -2,6 +2,8 @@
 A simple working example of running [Next.js](https://nextjs.org/) on Google App Engine's [Node Standard Environment](https://cloud.google.com/appengine/docs/standard/nodejs/) with [Material-UI](http://material-ui.com).
 
 **Update**:
+* v0.2.3 - 2019-10-12
+  * Upgrading various packages including material 4.5.0 and react
 * v0.2.2 - 2019-07-21
   * Upgraded to [Next.js 9](https://nextjs.org/blog/next-9)
   * Switched routing to Next.js 9's [filebased routing](https://github.com/zeit/next.js#dynamic-routing) and removed routes from server.js
