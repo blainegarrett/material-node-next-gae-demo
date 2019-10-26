@@ -2,6 +2,8 @@
 A simple working example of running [Next.js](https://nextjs.org/) on Google App Engine's [Node Standard Environment](https://cloud.google.com/appengine/docs/standard/nodejs/) with [Material-UI](http://material-ui.com).
 
 **Update**:
+* v0.2.4 - 2019-10-25
+  * Upgrading various packages
 * v0.2.3 - 2019-10-12
   * Upgrading various packages including material 4.5.0 and react
 * v0.2.2 - 2019-07-21
