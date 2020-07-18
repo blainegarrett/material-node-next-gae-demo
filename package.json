@@ -1,6 +1,6 @@
 {
   "name": "node-next-gae-demo",
-  "version": "v0.2.4",
+  "version": "v0.2.5",
   "description": "A universal react next.js app using material-ui designed to work for Google App Engine's Node.js Standard Environment",
   "main": "server.js",
   "scripts": {
@@ -10,7 +10,7 @@
     "start-local": "NODE_ENV=production PORT=8080 node server.js",
     "lint": "eslint .",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "deploy-gae": "gcloud --project blaine-garrett app deploy app.yaml --version material --verbosity=debug"
+    "deploy:gae": "gcloud --project blaine-garrett app deploy app.yaml --version material --verbosity=debug"
   },
   "repository": {
     "type": "git",
@@ -42,21 +42,21 @@
   },
   "homepage": "https://github.com/blainegarrett/material-node-next-gae-demo#readme",
   "dependencies": {
-    "@material-ui/core": "^4.5.1",
-    "@material-ui/icons": "^4.5.1",
-    "@material-ui/styles": "^4.5.0",
-    "axios": "^0.19.0",
+    "@material-ui/core": "^4.11.0",
+    "@material-ui/icons": "^4.9.1",
+    "@material-ui/styles": "^4.10.0",
+    "axios": "^0.19.2",
     "compression": "^1.7.4",
     "express": "^4.17.1",
-    "next": "^9.1.1",
+    "next": "^9.4.4",
     "prop-types": "^15.7.2",
-    "react": "^16.11.0",
-    "react-dom": "^16.11.0"
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
   },
   "devDependencies": {
-    "babel-eslint": "^10.0.3",
+    "babel-eslint": "^10.1.0",
     "eslint": "^5.15.1",
-    "eslint-plugin-react": "^7.16.0",
+    "eslint-plugin-react": "^7.20.3",
     "eslint-plugin-react-hooks": "^1.7.0"
   }
 }
